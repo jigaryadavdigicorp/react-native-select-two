@@ -109,8 +109,8 @@ class Select2 extends Component {
                     {item.name}
                 </Text>
                 <Icon style={styles.itemIcon}
-                    name={item.checked ? 'check-circle-outline' : 'radiobox-blank'}
-                    color={item.checked ? colorTheme : '#777777'} size={20} />
+                    name={item.checked ? 'checkbox-marked' : 'checkbox-blank-outline'}
+                    color={item.checked ? "#23DB7B" : '#777777'} size={25} />
             </TouchableOpacity>
         );
     }
@@ -129,7 +129,8 @@ class Select2 extends Component {
         let {
             style, modalStyle, title, onSelect, onRemoveItem, popupTitle, colorTheme,
             isSelectSingle, cancelButtonText, selectButtonText, searchPlaceHolderText,
-            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox
+            selectedTitleStyle, buttonTextStyle, buttonStyle, showSearchBox,
+            cancelButtonStyle = {}, selectButtonStyle = {}, cancelButtonTextStyle = {}
         } = this.props;
         let { show, selectedItem, preSelectedItem } = this.state;
         return (
@@ -196,8 +197,8 @@ class Select2 extends Component {
                                 title={cancelButtonText}
                                 textColor={colorTheme}
                                 backgroundColor='#fff'
-                                textStyle={buttonTextStyle}
-                                style={[styles.button, buttonStyle, { marginRight: 5, marginLeft: 10, borderWidth: 1, borderColor: colorTheme }]} />
+                                textStyle={[buttonTextStyle, cancelButtonTextStyle]}
+                                style={[styles.button, buttonStyle, { marginRight: 5, marginLeft: 10, borderWidth: 1, borderColor: colorTheme }, cancelButtonStyle]} />
                             <Button
                                 defaultFont={this.defaultFont}
                                 onPress={() => {
@@ -212,7 +213,7 @@ class Select2 extends Component {
                                 title={selectButtonText}
                                 backgroundColor={colorTheme}
                                 textStyle={buttonTextStyle}
-                                style={[styles.button, buttonStyle, { marginLeft: 5, marginRight: 10 }]} />
+                                style={[styles.button, buttonStyle, { marginLeft: 5, marginRight: 10 }, selectButtonStyle]} />
                         </View>
                     </Animated.View>
                 </Modal>
