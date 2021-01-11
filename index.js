@@ -109,7 +109,7 @@ class Select2 extends Component {
                     {item.name}
                 </Text>
                 <Icon style={styles.itemIcon}
-                    name={item.checked ? 'checkbox-marked' : 'checkbox-blank-outline'}
+                    name={item.checked ? isSelectSingle ? 'check-circle-outline' : 'checkbox-marked' : isSelectSingle ? "radiobox-blank" : 'checkbox-blank-outline'}
                     color={item.checked ? "#23DB7B" : '#777777'} size={25} />
             </TouchableOpacity>
         );
